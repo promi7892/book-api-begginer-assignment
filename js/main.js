@@ -1,25 +1,35 @@
 // Load data on click
+
 const loadBooks = () => {
 	const searchField = document.getElementById('search-input');
 	const searchText = searchField.value;
+	const url = `http://openlibrary.org/search.json?q=${searchText}`;
 	searchField.value = '';
 	if (searchText === '') {
 		alert('Please type the book name you are looking for');
 		displaySpinner('none');
 	} else {
-		fetch(`http://openlibrary.org/search.json?q=${searchText}`)
+		fetch(url)
 			.then((response) => response.json())
-			.then((data) => displayAll(data.docs));
+			.then((data) => displayAll(data.docs))
+			.finally(() => searchText === '');
 		displaySpinner('block');
 	}
+	// Display count for search  books
+	fetch(url)
+		.then((response) => response.json())
+		.then((data) => found(data));
+};
+
+const found = (total) => {
+	let count = document.getElementById('count');
+	count.innerHTML = `Total books found ${total.num_found}`;
 };
 
 // display all information in a card
 const displayAll = (bookDetails) => {
 	const displayResult = document.getElementById('display-result');
-	let count = document.getElementById('count');
-	count.innerHTML = `Total books found ${bookDetails.length}`;
-
+	// count.innerHTML = `Total books found ${bookDetails.length} `;
 	displayResult.textContent = '';
 	bookDetails.forEach((book) => {
 		const bookDetailDiv = document.createElement('div');
