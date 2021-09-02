@@ -15,7 +15,7 @@
 	</head>
 
 	<header>
-		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
 			<div class="container">
 				<img
 					src="./images/openlibrary-logo-tighter.svg"
@@ -43,26 +43,50 @@
 				>
 					<ul class="navbar-nav mb-2 mb-lg-0">
 						<li class="nav-item">
-							<a class="nav-link active mx-3" aria-current="page" href="#"
+							<a
+								class="nav-link active mx-3 fw-bold"
+								aria-current="page"
+								href="#"
 								>Home</a
 							>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link mx-3" aria-current="page" href="#">About Us</a>
+							<a class="nav-link mx-3 fw-bold" aria-current="page" href="#"
+								>About Us</a
+							>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link mx-3" aria-current="page" href="#"
+							<a class="nav-link mx-3 fw-bold" aria-current="page" href="#"
 								>Help & Support</a
 							>
 						</li>
 					</ul>
 					<button
-						class="border-0 bg-secondary text-white px-3 py-2 rounded fw-2 mx-2"
+						class="
+							border-0
+							bg-secondary
+							text-white
+							px-3
+							py-2
+							rounded
+							fw-bold
+							mx-2
+						"
 					>
 						Log In
 					</button>
 					<button
-						class="border-0 bg-info text-white mx-2 rounded fw-2 py-2 px-3"
+						class="
+							border-0
+							bg-info
+							text-white
+							mx-2
+							rounded
+							fw-2
+							py-2
+							px-3
+							fw-bold
+						"
 					>
 						Sign Up
 					</button>
@@ -71,14 +95,14 @@
 		</nav>
 	</header>
 
-	<body>
+	<body class="bg-secondary">
 		<main>
 			<!-- search field -->
 			<div class="input-group my-5 container w-50">
 				<input
 					id="search-input"
 					type="text"
-					class="form-control"
+					class="form-control shadow"
 					placeholder="Find me the book...."
 				/>
 				<button
@@ -92,9 +116,20 @@
 			<!-- Spinner -->
 			<div class="lds-hourglass" id="spinner"><div></div></div>
 			<!-- books counter -->
-			<div class="py-5 container text-black fs-4 text-center" id="count"></div>
+			<div
+				class="
+					py-5
+					container
+					text-black
+					fs-4
+					text-center text-white
+					fw-bold
+					fs-3
+				"
+				id="count"
+			></div>
 
-			<!-- display books -->
+			<!-- display all books in cards -->
 			<div
 				id="display-result"
 				class="row row-cols-1 row-cols-md-3 g-4 container mx-auto"

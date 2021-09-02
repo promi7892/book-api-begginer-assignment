@@ -23,7 +23,11 @@ const loadBooks = () => {
 
 const found = (total) => {
 	let count = document.getElementById('count');
-	count.innerHTML = `Total books found ${total.num_found}`;
+	if (total.numFound === 0) {
+		count.innerHTML = `No Result Found`;
+	} else {
+		count.innerHTML = `Total Matched With ${total.num_found} Books`;
+	}
 };
 
 // display all information in a card
@@ -35,8 +39,8 @@ const displayAll = (bookDetails) => {
 		const bookDetailDiv = document.createElement('div');
 		bookDetailDiv.classList.add('col');
 		bookDetailDiv.innerHTML = `
-		     <div class="card h-100 ">
-		<img class="card-img-top img-fluid h-50 w-75 mx-auto my-2 shadow-lg"
+		     <div class="card h-100 shadow ">
+		<img class="card-img-top img-fluid h-50 w-75 mx-auto m-4 shadow-lg"
         src="https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg" alt="">
 		            <div class="card-body">
 		                <h3 class="card-title">${book.title}</h3>
