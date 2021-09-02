@@ -3,7 +3,7 @@
 const loadBooks = () => {
 	const searchField = document.getElementById('search-input');
 	const searchText = searchField.value;
-	const url = `http://openlibrary.org/search.json?q=${searchText}`;
+	const url = `https://openlibrary.org/search.json?q=${searchText}`;
 	searchField.value = '';
 	if (searchText === '') {
 		alert('Please type the book name you are looking for');
@@ -33,7 +33,6 @@ const found = (total) => {
 // display all information in a card
 const displayAll = (bookDetails) => {
 	const displayResult = document.getElementById('display-result');
-	// count.innerHTML = `Total books found ${bookDetails.length} `;
 	displayResult.textContent = '';
 	bookDetails.forEach((book) => {
 		const bookDetailDiv = document.createElement('div');
